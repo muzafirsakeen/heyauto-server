@@ -33,6 +33,7 @@ urlpatterns = [
     path('user_login/',views.user_login),
     path('user_fetchone/',views.user_fetchone),
     path('user_deleteone/',views.deletesingleuser),
+    # path('driverupdation/',views.driverupdations),
     
 
 

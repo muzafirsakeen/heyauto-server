@@ -39,6 +39,8 @@ def get_all_users(request):
         
         tutorials_serializer = usersSerializer(tutorials, many=True)
         return JsonResponse(tutorials_serializer.data, safe=False)
+        return render(request,'index.html',{'response':response})
+
         # 'safe=False' for objects serialization
  
     # elif request.method == 'POST':

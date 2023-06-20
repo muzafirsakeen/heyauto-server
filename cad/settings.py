@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-qn$t$&r96*crox)9ob(x%l(tk+xho7*en)mja+&h)(s7w5+k+b"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "apis",
+    'channels',
+    'socket',
+    'customadmin'
 
 ]
 
@@ -85,6 +88,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "cad.wsgi.application"
+ASGI_APPLICATION = 'cad.asgi.application'
+
 
 
 # Database
