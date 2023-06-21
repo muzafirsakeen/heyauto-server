@@ -9,6 +9,8 @@ class users(models.Model):
     age = models.CharField(max_length=5)
     gender = models.CharField(max_length=10)
     created_on = models.DateTimeField(auto_now_add=True)
+    d_lat = models.CharField(max_length=100)
+    d_long = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -21,6 +23,7 @@ class driver_detail(models.Model):
     d_password = models.CharField(max_length=50)
     gender = models.CharField(max_length=10)
     d_photo=models.CharField(max_length=100)
+    d_age = models.CharField(max_length=10)
     d_lat = models.CharField(max_length=100)
     d_long = models.CharField(max_length=100)
     d_status = models.models.CharField(max_length=50)
@@ -33,3 +36,5 @@ class driver_detail(models.Model):
         admin_id = models.AutoField(primary_key=True)
         username = models.CharField(max_length=50)
         password = models.CharField(max_length=50)
+
+    

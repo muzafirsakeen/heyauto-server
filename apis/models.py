@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class users(models.Model):
     user_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
@@ -10,6 +9,7 @@ class users(models.Model):
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
     created_on = models.DateTimeField(auto_now_add=True)
+    
 
 class driver_detail(models.Model):
     driver_id = models.AutoField(primary_key=True)
@@ -18,7 +18,7 @@ class driver_detail(models.Model):
     d_phone = models.BigIntegerField()
     d_password = models.CharField(max_length=200)
     gender = models.CharField(max_length=10)
-    # d_photo=models.ImageField(upload_to='driversphoto',max_length=255, null=True, blank=True,default='images/None/No0img.jpg')
+    d_photo=models.ImageField(upload_to='driversphoto',max_length=255, null=True, blank=True,default='images/None/No0img.jpg')
     created_on = models.DateTimeField(auto_now_add=True)
     
 
@@ -33,4 +33,9 @@ class driver_photo(models.Model):
     driver_id = models.ForeignKey(driver_detail,on_delete=models.CASCADE,)
     d_photo=models.ImageField(upload_to='driversphoto',max_length=255, null=True, blank=True,default='images/None/No0img.jpg')
 
+# class Image(models.Model):
+#     file = models.ImageField()
+#     uploaded_at =  models.DateTimeField(auto_now_add=True)
+#     def __str__(self):
+#         self.file
 

@@ -11,7 +11,8 @@ from rest_framework.parsers import MultiPartParser, FormParser
 import hashlib
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
-
+# from .forms import ImageUpload
+# Create your views here.
 
 
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
@@ -215,12 +216,32 @@ def save_photo(request):
 #         d_gender = userdata['gender'],
 #         d_photo = userdata['photo']
 #     ) 
-def driver(self, request, *args, **kwargs):
-    form = EmployeeForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse_lazy('home', kwargs={'pk': pk}))
-    context = self.get_context_data(form=form)
-    return self.render_to_response(context)     
-def get(self, request, *args, **kwargs):
-    return self.post(request, *args, **kwargs)
+# def driver(self, request, *args, **kwargs):
+#     form = EmployeeForm(request.POST, request.FILES)
+#     if form.is_valid():
+#         form.save()
+#         return HttpResponseRedirect(reverse_lazy('home', kwargs={'pk': pk}))
+#     context = self.get_context_data(form=form)
+#     return self.render_to_response(context)     
+# def get(self, request, *args, **kwargs):
+#     return self.post(request, *args, **kwargs)
+
+
+
+
+def image_upload(request):
+    images = Image.objects.all()
+    if request.method == 'POST':
+        form = ImageUpload(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('portfolio')
+    else:
+        form = ImageUpload()
+    return render(request, 'index.html', {'form': form, 'images': images})
+# 
+# def driverupdations(request):
+    #  requests = request.GET
+    # d_id = requests['id']
+    # d_email = requests['d_email']
+    # d_password = requests['d_password']
